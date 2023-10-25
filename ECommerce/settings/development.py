@@ -27,6 +27,8 @@ CACHES = {
     }
 }
 
+CACHES_TTL = 20
+
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda request: True
 }

@@ -4,8 +4,309 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'documentation' %}">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product-list' %}">Product</a>
+          </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <header class="text-center mb-5">
+        <h1>Django Assignment Documentation</h1>
+        <p class="lead">Version 1.0</p>
+    </header>
+
+    <section class="mb-5">
+        <h3 class="text-center">Table of Content</h3>
+        <div class="container px-5 text-center">
+            <ul class="list-group list-group-light list-group-numbered">
+                <li class="list-group-item"><a href="#introduction">Introduction</a></li>
+                <li class="list-group-item"><a href="#technologies">Technologies Used</a></li>
+                <li class="list-group-item"><a href="#task-overview">Task Overview</a></li>
+                <li class="list-group-item"><a href="#project-structure">Project Structure</a></li>
+                <li class="list-group-item"><a href="#setting-up-the-project">Setting Up the Project</a></li>
+                <li class="list-group-item"><a href="#crud-api-implementation">CRUD API Implementation</a></li>
+                <li class="list-group-item"><a href="#database-configuration">Database Configuration</a></li>
+                <li class="list-group-item"><a href="#test">Test Application</a></li>
+                <li class="list-group-item"><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="introduction" class="mb-5">
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Introduction</h1>
+        </header>
+        <h6 class="container px-5 h5">
+            This documentation provides a comprehensive guide for the Django Assignment provided by ByteQuest, which aims to deploy a CRUD API for a product management system of an ECommerce shopping website. 
+            The application utilizes Python, MySQL, Django, Django Rest Framework, and is hosted on PythonAnywhere.
+        </h6>
+    </section>
+
+    <section id="technologies" class="mb-5" >
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Technologies Used</h1>
+        </header>
+        <div class="container px-5 text-center">
+            <ul class="list-group list-group-light list-group-numbered">
+                <li class="list-group-item">Python</li>
+                <li class="list-group-item">MySQL</li>
+                <li class="list-group-item">Django</li>
+                <li class="list-group-item">Django REST Framework</li>
+                <li class="list-group-item">PythonAnywhere</li>
+                <li class="list-group-item">Git</li>
+                <li class="list-group-item">Docker</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="task-overview" class="mb-5" >
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Task Overview</h1>
+        </header>
+        <div class="container px-5 ">
+            <h6 class="container p-5 h5 text-center">
+                The task involves creating a CRUD API for managing products in an ECommerce platform. 
+                The codebase is maintained on a public GitHub repository. The main objectives are as follows:
+            </h6>
+            <ul class="list-group list-group-light list-group-numbered" style="padding-left: 200px;">
+                <li class="list-group-item">Implement CRUD operations for products.</li>
+                <li class="list-group-item">Utilize Django models for database interactions.</li>
+                <li class="list-group-item">Host the application on PythonAnywhere to make it accessible via HTTP/HTTPS.</li>
+                <li class="list-group-item">Utilise the File Sytem/redis for cache</li>
+                <li class="list-group-item">Implement the Pytest for the testing the Application using fixture</li>
+                <li class="list-group-item">Dockerizing the App</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="project-structure" class="mb-5">
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Project Structure</h1>
+        </header>
+        <div class="container px-5">
+            <h6 class="container p-5 h5 text-center">
+                The project follows a structured organization:
+            </h6>
+            <pre style="margin-left: 400px;">
+            /ByteQuest_Assignment
+            ├── manage.py
+            ├── Products/
+                │   ├── __init__.py
+                │   ├── admin.py
+                │   ├── apps.py
+                │   ├── migrations/
+                │   └── ...
+                │   ├── models.py
+                │   └── views.py
+            ├── static/
+            │   └── images/
+            │       └── ...
+            ├── templates/
+            │   └── ...
+            ├── ECommerce/
+            │   ├── __init__.py
+            │   ├── asgi.py
+            │   ├── settings.py
+            │   ├── urls.py
+            │   └── wsgi.py
+            ├── Dockerfile
+            ├── pytest.ini
+            ├── docker-compose.html
+            </pre>
+            </h6>
+        </div>
+    </section>
+
+    <section id="setting-up-the-project" class="mb-5">
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Setting Up the Assignment</h1>
+        </header>
+        <div class="container text-dark">
+            <ul class="list-group list-group-light list-group-numbered" style="padding-left: 200px;">
+                <li class="list-group-item">
+                    Git Clone the repo:
+                    <div class="h5">
+                        <pre>
+                        git clone https://github.com/your_username/django-ecommerce.git
+                        </pre>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Install the following
+                    <div class="h5">
+                        <pre>
+                        pip install django
+                        pip install djangorestframework
+                        pip install mysqlclient
+                        pip install mysqlclient 
+                        pip install redis 
+                        pip install django-redis
+                        pip install pytest
+                        pip install pytest-django
+                        pip install dj-database-url
+                        sudo apt install docker-compose
+                        </pre>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Install the docker on your operating system respective of your OS
+                    <div class="h5">
+                        <pre>
+                        <a class="btn btn-outline-danger" href="https://docs.docker.com/engine/install/">Docker Installation</a>
+                        </pre>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Run the docker 
+                    <div class="h5">
+                        <pre>
+                        start: docker-compose up -d --build
+                        stop: docker-compose down | CONTROL^C
+                    ----------------------------------------------
+                        <b>
+                        if you are not using the docker then:
+                        In one terminal:
+                            - python manage.py runserver
+                        In other terminal:
+                            - docker run -d -p 6379:6379 redis
+                        </b>
+                        </pre>
+                        <ol class="list-group list-group-light list-group-numbered">
+                        <li class="list-group-item px-3 border-0 rounded-3 list-group-item-success mb-2">View the CRUD application in the http://127.0.0.1:8000/</li>
+                        <li class="list-group-item px-3 border-0 rounded-3 list-group-item-warning mb-2">Configure the ALLOWED_HOST in the settings > production.py, Hosted application system like AWS, GOOGLE CLOUD</li>
+                        <li class="list-group-item px-3 border-0 rounded-3 list-group-item-danger mb-2">Note: In the ECommerce > settings_pythonanywhere.py that i used in the PythonAnywhere.com</li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="crud-api-implementation" class="mb-5" >
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>CRUD API Implementation</h1>
+        </header>
+        <div class="container px-5 ">
+            <h6 class="container p-5 h5 text-center">
+                The CRUD operations are implemented using Django Rest Framework. 
+                Each operation corresponds to an API endpoint: 
+            </h6>
+            <ul class="list-group list-group-light" style="margin-left: 150px;">
+                <li class="list-group-item list-group-item-info mb-2 p-2">Create: <b><i>POST /products/</i></b></li>
+                <li class="list-group-item list-group-item-info mb-2 p-2">Read:
+                    <pre>
+                    Single Product: <b><i>GET /products/{id}/</i></b>
+                    List of Products: <b><i>GET /products/</i></b>
+                    </pre>
+                </li>
+                <li class="list-group-item list-group-item-info mb-2 p-2">Update: <b><i>PUT /products/{id}/</i></b></li>
+                <li class="list-group-item list-group-item-info mb-2 p-2">Delete: <b><i>DELETE /products/{id}/</i></b></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="database-configuration" class="mb-5" >
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Database Connection</h1>
+        </header>
+        <div class="container px-5 ">
+            <h6 class="container p-5 h5 text-center">
+                The application uses MySQL as the database backend. 
+                Configuration details can be found in developement.py: 
+            </h6>
+            <pre>
+                DATABASES = {
+                    'default': {
+                        'ENGINE': 'django.db.backends.mysql',
+                        'NAME': '<b>database_name_you_create</b>',
+                        'HOST': 'localhost',
+                        'USER': '<b>mysql_username</b>',
+                        'PASSWORD': '<b>mysql_password</b>'
+                    }
+                }
+                
+
+                CACHES = {
+                     'default': {
+                         'BACKEND': 'django_redis.cache.RedisCache',
+                         'LOCATION': 'redis://localhost:6379/2',
+                         'TIMEOUT': 20,
+                         'OPTIONS': {
+                             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+                         }
+                     }
+                }
+                
+            </pre>
+        </div>
+    </section>
+
+    <section id="test" class="mb-5">
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Test Applications | Use Fixtures</h1>
+        </header>
+        <div class="container px-5">
+            <h6 class="container px-5 h5">
+                Run the command in Other terminal:
+            </h6>
+            <h4>
+                <pre>
+                pytest
+                </pre>
+            </h4>
+            <h6 class="container px-5 h5">To check that CRUD operation working perfectly or not</h6>
+            <ul class="list-unstyled" style="margin-left: 300px;">
+                    <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>test_product_list_return_200_status</li>
+                    <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>test_create_product_valid_return_200_status</li>
+                    <li class="mb-1"><i class="fas fa-check-circle me-2 text-success"></i>test_create_product_invalid_return_404_status</li>
+            </ul>
+        </div>
+        
+    </section>
+
+    <section id="conclusion" class="mb-5">
+        <header class="text-center text-primary mb-3 display-5">
+            <h1>Conclusion</h1>
+        </header>
+        <h6 class="container px-5 h5">
+            This Django Assignment successfully deploys a CRUD API for a product management system. 
+            The codebase is well-structured, documented, and hosted on PythonAnywhere. 
+            Optional enhancements like Dockerization, enhanced documentation, fixtures, and caching have been provided for further improvement.
+        </h6>
+    </section>
+
+
+    <footer class="text-center text-lg-start bg-white text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <!-- Left -->
+          <div class="me-5 d-none d-lg-block">
+            <span>For any further inquiries or assistance, please contact <b class="text-primary"><em>shivangikeshri21@gmail.com</em></b>.</span>
+          </div>
+        </section>
+    </footer>
+
+
     
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
 </body>
 </html>
