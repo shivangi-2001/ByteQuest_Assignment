@@ -4,6 +4,7 @@ from rest_framework.test import APIClient
 from Products.models import Product
 import pytest
 
+# APIClient Fixture usage
 @pytest.fixture
 def api_client():
     return APIClient()

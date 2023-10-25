@@ -9,6 +9,9 @@ class ProductSerializer(serializers.ModelSerializer):
     tax_on_product = serializers.SerializerMethodField(
         method_name='auto_tax'
     )
+
+    #additional feature that sghow tax automatically 
+    #without saving in the database 
     def auto_tax(self, product: Product):
         if product.collections == 'ELECTRONIC':
             return round(float(product.price) * 1.80, 2)
